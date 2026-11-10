@@ -10,7 +10,7 @@ from hattrick_backend.core.config import get_settings
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--base-url", default="http://localhost:8010")
+    parser.add_argument("--base-url", default="http://localhost:8020")
     parser.add_argument("--publish", action="store_true", help="Send a real Telegram message")
     args = parser.parse_args()
     settings = get_settings()

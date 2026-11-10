@@ -86,7 +86,7 @@ class PostView(BaseModel):
 
 class RenderRequest(BaseModel):
     model_config = ConfigDict(extra="forbid")
-    background: str = Field(default="#102A43", pattern=r"^#[0-9A-Fa-f]{6}$")
+    background: str = Field(default="#24732D", pattern=r"^#[0-9A-Fa-f]{6}$")
     foreground: str = Field(default="#FFFFFF", pattern=r"^#[0-9A-Fa-f]{6}$")
-    accent: str = Field(default="#4ADE80", pattern=r"^#[0-9A-Fa-f]{6}$")
+    accent: str = Field(default="#FFCC00", pattern=r"^#[0-9A-Fa-f]{6}$")
     branding: str = Field(default="Hattrick Learning", max_length=60)

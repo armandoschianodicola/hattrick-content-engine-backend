@@ -17,13 +17,13 @@ Copy-Item .env.example .env
 uv sync --frozen
 docker compose up -d db
 uv run alembic upgrade head
-uv run uvicorn hattrick_backend.main:app --host localhost --port 8010 --reload --no-access-log
+uv run uvicorn hattrick_backend.main:app --host localhost --port 8020 --reload --no-access-log
 ```
 
-On macOS/Linux use `cp .env.example .env`. API docs: <http://localhost:8010/docs>. Health:
-<http://localhost:8010/health/ready>. Click **Authorize** in Swagger and enter the `.env` `API_KEY`.
+On macOS/Linux use `cp .env.example .env`. API docs: <http://localhost:8020/docs>. Health:
+<http://localhost:8020/health/ready>. Click **Authorize** in Swagger and enter the `.env` `API_KEY`.
 All `/api/v1` routes require this key in `X-API-Key`. Defaults: database `localhost:5434`, API
-`localhost:8010`; override `DATABASE_PORT`, `API_PORT` for Compose and `DATABASE_URL`/uvicorn flags
+`localhost:8020`; override `DATABASE_PORT`, `API_PORT` for Compose and `DATABASE_URL`/uvicorn flags
 for host execution. These ports allow the stack to coexist with a separate ingestion database.
 
 To run everything in Docker instead:
@@ -63,7 +63,7 @@ Telegram returns a recorded `FAILED/not_configured` attempt, never simulated suc
 Example generation:
 
 ```sh
-curl -X POST http://localhost:8010/api/v1/generations \
+curl -X POST http://localhost:8020/api/v1/generations \
   -H 'X-API-Key: local-development-key-change-me' -H 'Content-Type: application/json' \
   -d '{"topic_id":"weather","content_type":"educational","target_platforms":["telegram"],"tone":"informative","language":"en"}'
 ```
